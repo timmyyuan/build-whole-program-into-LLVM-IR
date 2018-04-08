@@ -12,13 +12,13 @@ chromium official website detailed records how to checkout and download the chro
 
 generate build system files into the build directory
 --
-...
+something here
 modify build system files
 --
-...
+something here
 building
 --
-...
+something here
 some issues
 --
-...
+somethis here
