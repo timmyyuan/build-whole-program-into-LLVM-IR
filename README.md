@@ -35,6 +35,7 @@ export PATH=/path/to/llvm/build/bin:$PATH       # add this line to bashrc
 source ~/.bashrc
 ```
 ### test (optional)
+
 we use sed as a benchmark to test whether the gold plugins work correctly in LLVM.
 ```sh
 # check clang and binutils version
@@ -47,6 +48,7 @@ mkdir sed_build && cd sed_build
 make
 ```
 If everything is ok, sed.0.0.preopt.bc can be found under the build directory. (sepecifically in /path/to/sed_build/sed)
+
 check out the chromium project
 --
 
