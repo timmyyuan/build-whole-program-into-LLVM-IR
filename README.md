@@ -8,7 +8,7 @@ build LLVM with gold plugins
 LLVM official organization recommand users to use gold plugins to build a whole project into LLVM bitcodes. There is also some useful opensource tools to achieve this goal, e.g. wllvm (a refinement python script can be found on github). The different between gold plugins and wllvm is the former performs a real linking process with LTO (link time optimization) and the latter simply use llvm-link to connect all intermediate bitcodes in series. No matter which method be chosed, the difference in the bitcodes they produce is very small in practice.
 
 download and build binutils.
-```
+```sh
 sudo apt install bison flex libncurses5-dev texinfo
 git clone --depth 1 git://sourceware.org/git/binutils-gdb.git binutils
 mkdir binutils_build && mkdir binutils_install && cd binutils_build
@@ -16,7 +16,7 @@ mkdir binutils_build && mkdir binutils_install && cd binutils_build
 make install
 ```
 build LLVM with binutils header.
-```
+```sh
 sudo apt install subversion cmake zlib1g zlib1g-dev
 cd /where/you/want/llvm/to/live
 svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm
@@ -28,7 +28,7 @@ cmake /where/you/want/llvm/to/live -DLLVM_BINUTILS_INCDIR=/path/to/binutils/incl
 make -j8
 ```
 add newest binutils and newest LLVM to envirnoment variables.
-```
+```sh
 vim ~/.bashrc
 export PATH=/path/to/binutils_install/bin:$PATH # add this line to bashrc
 export PATH=/path/to/llvm/build/bin:$PATH       # add this line to bashrc
@@ -36,7 +36,7 @@ source ~/.bashrc
 ```
 test (optional)
 we use sed as a benchmark to test whether the gold plugins work correctly in LLVM.
-```
+```sh
 # check clang and binutils version
 clang --version
 binutils --version
