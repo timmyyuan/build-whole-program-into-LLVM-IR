@@ -10,7 +10,7 @@ LLVM official organization recommand users to use gold plugins to build a whole 
 check out the chromium project
 --
 
-chromium official homepage detailed records how to checkout and download the chromium project. To avoid unnecessary compatibility problems, here we prefer Ubuntu 16.04 (x64) to build the newest chromium.
+chromium official homepage detailed records how to checkout and build the chromium project. To avoid unnecessary compatibility problems, here we prefer Ubuntu 16.04 (x64) to build the newest chromium.
 
 generate build system files into the build directory
 --
