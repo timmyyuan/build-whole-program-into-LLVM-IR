@@ -43,10 +43,10 @@ binutils --version
 # if the versions are correct
 cd /path/to/workspace
 mkdir sed_build && cd sed_build
-/path/to/sed/source/configure CC=clang CFLAGS='-flto -fuse-ld=gold -Wl,-plugin-opt=save-temps'
+/path/to/sed/source/configure CC=clang LDFLAGS='-flto -fuse-ld=gold -Wl,-plugin-opt=save-temps'
 make
 ```
-check if there is a correct sed.
+If everything is ok, sed.0.0.preopt.bc can be found under the build directory. (sepecifically in /path/to/sed_build/sed)
 check out the chromium project
 --
 
