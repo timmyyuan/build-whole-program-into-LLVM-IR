@@ -40,7 +40,7 @@ we use sed as a benchmark to test whether the gold plugins work correctly in LLV
 # check clang and binutils version
 clang --version
 binutils --version
-# if the versions are correct
+# if the work flow above is correct
 cd /path/to/workspace
 mkdir sed_build && cd sed_build
 /path/to/sed/source/configure CC=clang LDFLAGS='-flto -fuse-ld=gold -Wl,-plugin-opt=save-temps'
