@@ -1,6 +1,6 @@
 # ChromiumBuild
 
-Here is some notes for how to build the chromium project into a single LLVM IR bitcode file (ONLY on Linux). Generally, get a integrate LLVM IR bitcode has several purposes such as whole program analysis or optimization.
+Here is some notes for how to build the chromium project into a single LLVM IR bitcode file (ONLY on Linux). Generally, get a integrate LLVM IR bitcode has several purposes such as whole program analysis or optimization. Chromium official homepage detailed records how to checkout and build the chromium project. To avoid unnecessary compatibility problems, here we prefer Ubuntu 16.04 (64 bit) to build the newest chromium.
 
 build LLVM with gold plugins
 --
@@ -65,9 +65,7 @@ If everything is ok, sed.0.0.preopt.bc can be found under the build directory. (
 check out the chromium project
 --
 
-Chromium official homepage detailed records how to checkout and build the chromium project. To avoid unnecessary compatibility problems, here we prefer Ubuntu 16.04 (64 bit) to build the newest chromium.
-
-As chinese mainland users, we perfer to clone chromium project from the mirror site instead of googlesource. the mirror of chromium can be easily found on github
+For chinese mainland users, we perfer to clone code from a mirror site instead of googlesource. the mirror of chromium can be found easily on github according to the following link
 ```
 https://github.com/chromium/chromium
 ```
