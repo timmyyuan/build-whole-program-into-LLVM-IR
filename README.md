@@ -9,22 +9,32 @@ LLVM official organization recommand users to use gold plugins to build a whole 
 
 ### download and build binutils.
 ```sh
+# some necessary pre-requisite
 sudo apt install bison flex libncurses5-dev texinfo
+# get the trunk version of binutils
 git clone --depth 1 git://sourceware.org/git/binutils-gdb.git binutils
+# create a build directory
 mkdir binutils_build && mkdir binutils_install && cd binutils_build
+# configuration
 ../binutils/configure --disable-werror --prefix=/path/to/binutils_install
+# build/compile
 make install
 ```
 ### build LLVM with binutils header.
 ```sh
+# some necessary pre-requisite
 sudo apt install subversion cmake zlib1g zlib1g-dev
+# get the trunk version of LLVM and clang
 cd /where/you/want/llvm/to/live
 svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm
 cd llvm/tools
 svn co http://llvm.org/svn/llvm-project/cfe/trunk clang
 cd /where/you/want/to/build/llvm
+# create a build directory
 mkdir build && cd build
+# configuration with binutils header
 cmake /where/you/want/llvm/to/live -DLLVM_BINUTILS_INCDIR=/path/to/binutils/include
+# build/compile
 make -j8
 ```
 ### add newest binutils and newest LLVM to envirnoment variables.
@@ -38,13 +48,16 @@ source ~/.bashrc
 
 we use sed as a benchmark to test whether the gold plugins work correctly in LLVM.
 ```sh
-# check clang and binutils version
+# check the envirnoment variables are correct.
 clang --version
 binutils --version
-# if the work flow above is correct
+# switch to workspace where to build sed.
 cd /path/to/workspace
+# create a build directory.
 mkdir sed_build && cd sed_build
+# configuration
 /path/to/sed/source/configure CC=clang LDFLAGS='-flto -fuse-ld=gold -Wl,-plugin-opt=save-temps'
+# build/compile
 make
 ```
 If everything is ok, sed.0.0.preopt.bc can be found under the build directory. (sepecifically in /path/to/sed_build/sed)
@@ -52,7 +65,12 @@ If everything is ok, sed.0.0.preopt.bc can be found under the build directory. (
 check out the chromium project
 --
 
-chromium official homepage detailed records how to checkout and build the chromium project. To avoid unnecessary compatibility problems, here we prefer Ubuntu 16.04 (x64) to build the newest chromium.
+Chromium official homepage detailed records how to checkout and build the chromium project. To avoid unnecessary compatibility problems, here we prefer Ubuntu 16.04 (64 bit) to build the newest chromium.
+
+As chinese mainland users, we perfer to clone chromium project from the mirror site instead of googlesource. the mirror of chromium can be easily found on github
+```
+https://github.com/chromium/chromium
+```
 
 generate build system files into the build directory
 --
