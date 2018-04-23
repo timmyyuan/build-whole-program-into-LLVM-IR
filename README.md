@@ -69,7 +69,7 @@ The first step of check out is clone depot_tools and configure depot_tools accor
 For chinese mainland users, we perfer to clone code from a mirror site instead of googlesource. the mirror of chromium can be found easily on github
 ```
 gclient config --name=chromium https://github.com/chromium/chromium.git
-gclient sync
+gclient sync --nohooks
 ```
 
 generate build system files into the build directory
