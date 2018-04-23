@@ -65,6 +65,22 @@ If everything is ok, sed.0.0.preopt.bc can be found under the build directory. (
 check out the chromium project
 --
 The first step of check out is clone depot_tools and configure depot_tools according to offical website of chromium. (https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md)
+```
+cd where-to-live-depot_tools
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+export PATH="$PATH:/path/to/depot_tools"
+```
+#### 1. from googlesource
+
+```
+mkdir ~/chromium && cd ~/chromium
+fetch --nohooks chromium
+cd src
+./build/install-build-deps.sh
+gclient runhooks
+```
+
+#### 2. from github
 
 For chinese mainland users, we perfer to clone code from a mirror site instead of googlesource. the mirror of chromium can be found easily on github
 ```
