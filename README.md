@@ -72,7 +72,7 @@ export PATH="$PATH:/path/to/depot_tools"
 ```
 #### 1. from googlesource
 
-```
+```sh
 mkdir ~/chromium && cd ~/chromium
 fetch --nohooks chromium
 cd src
@@ -83,7 +83,8 @@ gclient runhooks
 #### 2. from github
 
 For chinese mainland users, we perfer to clone code from a mirror site instead of googlesource. the mirror of chromium can be found easily on github
-```
+```sh
+git clone https://github.com/chromium/chromium.git
 gclient config --name=chromium https://github.com/chromium/chromium.git
 gclient sync --nohooks
 ```
