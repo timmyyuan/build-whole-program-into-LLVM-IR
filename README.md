@@ -64,6 +64,7 @@ If everything is ok, sed.0.0.preopt.bc can be found under the build directory. (
 
 check out the chromium project
 --
+
 The first step of check out is clone depot_tools and configure depot_tools according to offical website of chromium. (https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md)
 ```
 cd where-to-live-depot_tools
@@ -75,8 +76,7 @@ export PATH="$PATH:/path/to/depot_tools"
 ```sh
 mkdir ~/chromium && cd ~/chromium
 fetch --nohooks chromium
-cd src
-./build/install-build-deps.sh
+cd src && ./build/install-build-deps.sh
 gclient runhooks
 ```
 
@@ -94,12 +94,21 @@ gclient config --spec 'solutions = [
   },
 ]'
 gclient sync --nohooks
+cd src && ./build/install-build-deps.sh
+gclient runhooks
 ```
+Once ./build/install-build-deps.sh be executed, the build envirnoment of chromium is complete. The operating system is running in low graphics mode when we reboot Ubuntu. Switch to terminal and type
+```sh
+sudo apt update && sudo apt upgrade
+```
+to fix it.
 
 generate build system files into the build directory
 --
 
-something here ~
+```sh
+gn gen args out/Default
+```
 
 modify build system files
 --
