@@ -84,8 +84,15 @@ gclient runhooks
 
 For chinese mainland users, we perfer to clone code from a mirror site instead of googlesource. the mirror of chromium can be found easily on github
 ```sh
-git clone https://github.com/chromium/chromium.git
-gclient config --name=chromium https://github.com/chromium/chromium.git
+git clone https://github.com/chromium/chromium.git src
+gclient config --spec 'solutions = [
+  {
+    "url" : "https://github.com/chromium/chromium.git",
+    "managed" : False,
+    "name" : "src",
+    "custom_deps" : {},
+  },
+]'
 gclient sync --nohooks
 ```
 
