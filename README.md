@@ -107,7 +107,7 @@ generate build system files into the build directory
 --
 
 ```sh
-gn gen args out/Default
+gn gen out/Default
 ```
 
 modify build system files
