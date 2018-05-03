@@ -1,5 +1,7 @@
 # Build chromium into LLVM IR
 
+Here is some notes for how to build the chromium project into a single LLVM IR bitcode file (ONLY on Linux).
+
 check out the chromium project
 --
 
