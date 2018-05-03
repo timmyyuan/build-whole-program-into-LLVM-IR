@@ -1,6 +1,6 @@
 # Build whole programs into LLVM IR
 
-Here is some notes for how to build the projects into a single LLVM IR bitcode file. Generally, get a integrate LLVM IR bitcode has several purposes such as whole program analysis or optimization. There are two ways, i.e. gold plugin and wllvm, to achieve this purpose.
+Here is some notes for how to build the projects into a single LLVM IR bitcode file. Generally, get a integrate LLVM IR bitcode has several purposes such as whole program analysis or optimization. There are two ways, i.e. gold plugin and whole-program-llvm, to achieve this aim.
 
 ## Gold plugin
 
