@@ -5,11 +5,10 @@ Here is some notes for how to build the projects into a single LLVM IR bitcode f
 ## Gold plugin
 
 ### enable gold plugin for LLVM
---
 
 LLVM official organization recommand users to use gold plugins to build a whole project into LLVM bitcodes. There is also some useful opensource tools to achieve this goal, e.g. wllvm (a refinement python script can be found on github). The different between gold plugins and wllvm is the former performs a real linking process with LTO (link time optimization) and the latter simply use llvm-link to connect all intermediate bitcodes in series. No matter which method be chosed, the difference in the bitcodes they produce is very small in practice.
 
-### download and build binutils.
+#### download and build binutils.
 ```sh
 # some necessary pre-requisite
 sudo apt install bison flex libncurses5-dev texinfo
@@ -22,7 +21,7 @@ mkdir binutils_build && mkdir binutils_install && cd binutils_build
 # build/compile
 make install
 ```
-### build LLVM with binutils header.
+#### build LLVM with binutils header.
 ```sh
 # some necessary pre-requisite
 sudo apt install subversion cmake zlib1g zlib1g-dev
@@ -45,7 +44,7 @@ the following cmake flags is opional :
 -DLLVM_ENABLE_RTTI=On
 ```
 
-### add newest binutils and newest LLVM to envirnoment variables.
+#### add newest binutils and newest LLVM to envirnoment variables.
 ```sh
 vim ~/.bashrc
 # use (ESC + a) to insert sentences to current file in vi/vim
@@ -59,7 +58,7 @@ source ~/.bashrc
 ```
 to evaluate the envirnoment variables, reopen shell is also workful.
 
-### test (optional)
+#### test (optional)
 
 we use sed as a benchmark to test whether the gold plugins work correctly in LLVM.
 ```sh
