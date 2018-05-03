@@ -1,14 +1,12 @@
 # Build whole programs into LLVM IR
 
-Here is some notes for how to build the projects into a single LLVM IR bitcode file. Generally, get a integrate LLVM IR bitcode has several purposes such as whole program analysis or optimization. There are two ways, i.e. gold plugin and whole-program-llvm, to achieve this aim.
+Here is some notes for how to build the projects into a single LLVM IR bitcode file. Generally, get a integrate LLVM IR bitcode has several purposes such as whole program analysis or optimization. Based on information on the network, there are two ways, named gold plugin and whole-program-llvm respectively, to achieve this goal.
 
-## Gold plugin
+LLVM official organization introduced the gold plugin to support LTO (link time optimization) and further be used to build the whole project into LLVM bitcodes. Some useful opensource tools has been published on github, e.g. wllvm (whole-program-llvm, write in python and support Linux and Mac). The different between the gold plugin and wllvm is that the former performs a real link process (with LTO) and the latter simply use llvm-link to connect all intermediate bitcodes produced in compile time. No matter which method be chosed, the difference in the bitcodes they produce is very small in practice.
 
-### enable gold plugin for LLVM
+## The gold plugin
 
-LLVM official organization recommand users to use gold plugins to build a whole project into LLVM bitcodes. There is also some useful opensource tools to achieve this goal, e.g. wllvm (whole-program-llvm, a refinement python script can be found on github). The different between gold plugins and wllvm is the former performs a real linking process with LTO (link time optimization) and the latter simply use llvm-link to connect all intermediate bitcodes in series. No matter which method be chosed, the difference in the bitcodes they produce is very small in practice.
-
-#### download and build binutils.
+### download and build binutils.
 ```sh
 # some necessary pre-requisite
 sudo apt install bison flex libncurses5-dev texinfo
@@ -21,7 +19,7 @@ mkdir binutils_build && mkdir binutils_install && cd binutils_build
 # build/compile
 make install
 ```
-#### build LLVM with binutils header.
+### build LLVM with binutils header.
 ```sh
 # some necessary pre-requisite
 sudo apt install subversion cmake zlib1g zlib1g-dev
@@ -44,7 +42,7 @@ the following cmake flags are optional :
 -DLLVM_ENABLE_RTTI=On
 ```
 
-#### add newest binutils and newest LLVM to envirnoment variables.
+### add newest binutils and newest LLVM to envirnoment variables.
 ```sh
 vim ~/.bashrc
 # use (ESC + a) to insert sentences to current file in vi/vim
@@ -58,7 +56,7 @@ source ~/.bashrc
 ```
 to evaluate the envirnoment variables, reopen shell is also workful.
 
-#### test (optional)
+### test (optional)
 
 we use sed as a benchmark to test whether the gold plugins work correctly in LLVM.
 ```sh
