@@ -38,7 +38,7 @@ cmake /where/you/want/llvm/to/live -DLLVM_BINUTILS_INCDIR=/path/to/binutils/incl
 # build/compile
 make -j8
 ```
-the following cmake flags is opional :
+the following cmake flags are opional :
 ```sh
 -DLLVM_ENABLE_ASSERTIONS=On
 -DLLVM_ENABLE_RTTI=On
@@ -79,3 +79,11 @@ If everything is ok, sed.0.0.preopt.bc can be found under the build directory. (
 ## whole-program-llvm
 
 some notes here
+
+## Reference
+
+[Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html)
+<br>[The LLVM gold plugin](https://llvm.org/docs/GoldPlugin.html)
+<br>[Compiling Autotooled projects to LLVM Bitcode](http://gbalats.github.io/2015/12/10/compiling-autotooled-projects-to-LLVM-bitcode.html)
+<br>[Install LLVM Gold plugin on Ubuntu](https://github.com/SVF-tools/SVF/wiki/Install-LLVM-Gold-Plugin-on-Ubuntu)
+<br>[whold-program-llvm](https://github.com/travitch/whole-program-llvm)
