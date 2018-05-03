@@ -87,7 +87,10 @@ use -v to obvious the building flows.
 
 ## some issues
 
-something here ~
+There are some shared libraries can not be transformed to LLVM IR normally.
+```sh
+./libcontent.so (llvm-dis : error : Malformed block)
+```
 
 ## Reference
 
