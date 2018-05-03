@@ -34,9 +34,9 @@ cd /where/you/want/to/build/llvm
 # create build and install directories
 mkdir llvm_build && mkdir llvm_install && cd llvm_build
 # configuration with binutils header
-cmake /where/you/want/llvm/to/live -DLLVM_BINUTILS_INCDIR=/path/to/binutils/include -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_INSTALL_PREFIX=/path/to/llvm_install ../llvm
+cmake ../llvm -DLLVM_BINUTILS_INCDIR=/path/to/binutils/include -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_INSTALL_PREFIX=/path/to/llvm_install
 # build/compile
-make -j8
+make -j4
 ```
 the following cmake flags are optional :
 ```sh
