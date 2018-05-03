@@ -4,7 +4,9 @@ Here is some notes for how to build the chromium project into a single LLVM IR b
 
 some useful reference:
 [offical : build chromium on linux](ttps://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md)
+
 [offical : build chromium by clang](https://chromium.googlesource.com/chromium/src/+/master/docs/clang.md)
+
 [build chromium into LLVM IR](https://github.com/SVF-tools/SVF/wiki/Compiling-Chrome-using-flto)
 
 check out the chromium project
