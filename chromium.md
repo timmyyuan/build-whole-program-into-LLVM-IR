@@ -1,6 +1,6 @@
 # Build chromium into LLVM IR
 
-Here is some notes for how to build the chromium project into a single LLVM IR bitcode file (ONLY on Linux).
+Here is some notes for how to build the chromium project into a single LLVM IR bitcode file (ONLY on Linux). Chromium official homepage detailed records how to checkout and build the chromium project. To avoid unnecessary compatibility problems, here we prefer Ubuntu 16.04 (64 bit) to build the newest chromium.
 
 check out the chromium project
 --
