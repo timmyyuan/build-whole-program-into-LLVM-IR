@@ -30,13 +30,19 @@ svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm
 cd llvm/tools
 svn co http://llvm.org/svn/llvm-project/cfe/trunk clang
 cd /where/you/want/to/build/llvm
-# create a build directory
-mkdir build && cd build
+# create build and install directories
+mkdir llvm_build && mkdir llvm_install && cd llvm_build
 # configuration with binutils header
-cmake /where/you/want/llvm/to/live -DLLVM_BINUTILS_INCDIR=/path/to/binutils/include
+cmake /where/you/want/llvm/to/live -DLLVM_BINUTILS_INCDIR=/path/to/binutils/include -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_INSTALL_PREFIX=/path/to/llvm_install ../llvm
 # build/compile
 make -j8
 ```
+the following cmake flags is opional :
+```sh
+-DLLVM_ENABLE_ASSERTIONS=On
+-DLLVM_ENABLE_RTTI=On
+```
+
 ### add newest binutils and newest LLVM to envirnoment variables.
 ```sh
 vim ~/.bashrc
