@@ -2,13 +2,7 @@
 
 Here is some notes for how to build the chromium project into a single LLVM IR bitcode file (ONLY on Linux). Chromium official homepage detailed records how to checkout and build the chromium project. To avoid unnecessary compatibility problems, here we prefer Ubuntu 16.04 (64 bit) to build the newest chromium.
 
-some useful reference:
-<br>[offical : build chromium on linux](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md)
-<br>[offical : build chromium by clang](https://chromium.googlesource.com/chromium/src/+/master/docs/clang.md)
-<br>[build chromium into LLVM IR](https://github.com/SVF-tools/SVF/wiki/Compiling-Chrome-using-flto)
-
-check out the chromium project
---
+## check out the chromium project
 
 The first step of check out is clone depot_tools and configure depot_tools according to offical website of chromium. 
 ```
@@ -16,7 +10,7 @@ cd where-to-live-depot_tools
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 export PATH="$PATH:/path/to/depot_tools"
 ```
-#### 1. from googlesource
+### 1. from googlesource
 
 ```sh
 mkdir ~/chromium && cd ~/chromium
@@ -25,7 +19,7 @@ cd src && ./build/install-build-deps.sh
 gclient runhooks
 ```
 
-#### 2. from github
+### 2. from github
 
 For chinese mainland users, we perfer to clone code from a mirror site instead of googlesource. the mirror of chromium can be found easily on github
 ```sh
@@ -48,8 +42,8 @@ sudo apt update && sudo apt upgrade
 ```
 to fix it.
 
-generate build system files into the build directory
---
+## generate build system files into the build directory
+
 assume we are undering the src directory (the root of chromium project).
 ```sh
 gn args out/mybuild
@@ -69,8 +63,8 @@ use_lld = false
 ```
 disable NACL (native client) is necessary because NACL will use its built-in compiler which do not support '-flto'. 
 
-modify build system files
---
+## modify build system files
+
 
 c/cxx/link flags should be changed because we will save temporary bitcodes in compile time. 
 Use your favorite editor to open directory out/mybuild then
@@ -84,7 +78,7 @@ If you want to add some flags yourself, you can change the build command as belo
 replace all appears of "${cflags_c}" to "${cflags_c} -flto -g3 -O0"
 ```
 
-building
+## building
 --
 
 ```sh
@@ -92,7 +86,13 @@ ninja -C out/mybuild chrome -j 16
 ```
 use -v to obvious the building flows.
 
-some issues
---
+## some issues
 
 something here ~
+
+## Reference
+
+<br>[offical : build chromium on linux](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md)
+<br>[offical : build chromium by clang](https://chromium.googlesource.com/chromium/src/+/master/docs/clang.md)
+<br>[build chromium into LLVM IR](https://github.com/SVF-tools/SVF/wiki/Compiling-Chrome-using-flto)
+
