@@ -3,9 +3,9 @@
 Here is some notes for how to build the chromium project into a single LLVM IR bitcode file (ONLY on Linux). Chromium official homepage detailed records how to checkout and build the chromium project. To avoid unnecessary compatibility problems, here we prefer Ubuntu 16.04 (64 bit) to build the newest chromium.
 
 some useful reference:
-<br>[offical : build chromium on linux](ttps://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md)
-<br>[offical : build chromium by clang](https://chromium.googlesource.com/chromium/src/+/master/docs/clang.md)
-<br>[build chromium into LLVM IR](https://github.com/SVF-tools/SVF/wiki/Compiling-Chrome-using-flto)
+[offical : build chromium on linux](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md)
+[offical : build chromium by clang](https://chromium.googlesource.com/chromium/src/+/master/docs/clang.md)
+[build chromium into LLVM IR](https://github.com/SVF-tools/SVF/wiki/Compiling-Chrome-using-flto)
 
 check out the chromium project
 --
