@@ -40,10 +40,17 @@ make -j8
 ### add newest binutils and newest LLVM to envirnoment variables.
 ```sh
 vim ~/.bashrc
+# use (ESC + a) to insert sentences to current file in vi/vim
 export PATH=/path/to/binutils_install/bin:$PATH # add this line to bashrc
 export PATH=/path/to/llvm/build/bin:$PATH       # add this line to bashrc
+# use (ESC + :wq) to quit vi/vim
+```
+then type the command to shell
+```sh
 source ~/.bashrc
 ```
+to evaluate the envirnoment variables, reopen shell is also workful.
+
 ### test (optional)
 
 we use sed as a benchmark to test whether the gold plugins work correctly in LLVM.
@@ -105,20 +112,47 @@ to fix it.
 
 generate build system files into the build directory
 --
-
+assume we are undering the src directory (the root of chromium project).
 ```sh
-gn gen out/Default
+gn args out/mybuild
 ```
+this command will bring users to a vi/vim editor, type the following configuration for compiling:
+```sh
+# use (ESC + a) to insert sentences to current file in vi/vim
+clang_base_path = "/path/to/llvm_build"
+binutils_path = "/path/to/binutils_install/bin"
+clang_use_chrome_plugins = false
+is_component_build = true
+enable_nacl = false
+is_debug = false
+symbol_level = 0
+use_lld = false
+# use (ESC + :wq) to quit vi/vim
+```
+disable NACL (native client) is necessary because NACL will use its built-in compiler which do not support '-flto'. 
 
 modify build system files
 --
 
-something here ~
+c/cxx/link flags should be changed because we will save temporary bitcodes in compile time. 
+Use your favorite editor to open directory out/mybuild then
+```sh
+replace all appears of "${ldflags}" to "${ldflags} -flto -fuse-ld=gold -Wl,plugin-opt=save-temps" 
+replace all appears of "${cflags_c}" to "${cflags_c} -flto"
+replace all appears of "${cflags_cxx}" to "${clags_cxx} -flto"
+```
+If you want to add some flags yourself, you can change the build command as below, for example
+```sh
+replace all appears of "${cflags_c}" to "${cflags_c} -flto -g3 -O0"
+```
 
 building
 --
 
-something here ~
+```sh
+ninja -C out/mybuild chrome -j 16
+```
+use -v to obvious the building flows.
 
 some issues
 --
