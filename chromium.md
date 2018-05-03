@@ -79,7 +79,6 @@ replace all appears of "${cflags_c}" to "${cflags_c} -flto -g3 -O0"
 ```
 
 ## building
---
 
 ```sh
 ninja -C out/mybuild chrome -j 16
