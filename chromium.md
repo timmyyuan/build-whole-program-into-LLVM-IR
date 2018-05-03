@@ -61,7 +61,7 @@ symbol_level = 0
 use_lld = false
 # use (ESC + :wq) to quit vi/vim
 ```
-disable NACL (native client) is necessary because NACL will use its built-in compiler which do not support '-flto'. 
+disable NACL (native client) is necessary because its built-in compiler does not support '-flto'. 
 
 ## modify build system files
 
