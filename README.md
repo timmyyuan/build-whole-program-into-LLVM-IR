@@ -104,7 +104,7 @@ gclient sync --nohooks
 cd src && ./build/install-build-deps.sh
 gclient runhooks
 ```
-Once ./build/install-build-deps.sh be executed, the build envirnoment of chromium is complete. The operating system is running in low graphics mode when we reboot Ubuntu. Switch to terminal and type
+Once ./build/install-build-deps.sh be executed, the build envirnoment of chromium is complete. The operating system is running in low graphics mode when we reboot Ubuntu. Switch to terminal (Ctrl + F1) and type
 ```sh
 sudo apt update && sudo apt upgrade
 ```
