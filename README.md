@@ -38,7 +38,7 @@ cmake /where/you/want/llvm/to/live -DLLVM_BINUTILS_INCDIR=/path/to/binutils/incl
 # build/compile
 make -j8
 ```
-the following cmake flags are opional :
+the following cmake flags are optional :
 ```sh
 -DLLVM_ENABLE_ASSERTIONS=On
 -DLLVM_ENABLE_RTTI=On
