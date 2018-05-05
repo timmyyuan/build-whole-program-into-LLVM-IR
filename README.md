@@ -2,7 +2,14 @@
 
 Here is some notes for how to build the projects into a single LLVM IR bitcode file. Generally, get a integrate LLVM IR bitcode has several purposes such as whole program analysis or optimization. Based on information on the network, there are two ways, named gold plugin and whole-program-llvm respectively, to achieve this goal.
 
-LLVM official organization introduced the gold plugin to support LTO (link time optimization) and further be used to build the whole project into LLVM bitcodes. Some useful opensource tools has been published on github, e.g. wllvm (whole-program-llvm, write in python and support Linux and Mac). The different between the gold plugin and wllvm is that the former performs a real link process (with LTO) and the latter simply use llvm-link to connect all intermediate bitcodes produced in compile time. No matter which method be chosed, the difference in the bitcodes they produce is very small in practice.
+LLVM official organization introduced the gold plugin to support LTO (link time optimization) and further be used to build the whole project into LLVM bitcodes. Some useful opensource tools has been published on github, e.g. wllvm (whole-program-llvm, write in python and support Linux and Mac). 
+
+The mainly differences between the gold plugin and wllvm are :
+* the gold plugin only support ELF files while wllvm can also support MACHO files.
+* wllvm unsupports share libraries and does not need the targets be position independent (i.e. '-fPIC').
+* the gold plugin performs a real link process (with LTO, i.e. '-flto') while wllvm simply uses llvm-link (with less optimizations) to connect all intermediate bitcodes produced in compile time. 
+
+More information can be found in reference but in practice, the bitcodes (of executables) produced by above methods are extremly similar.
 
 ## The gold plugin
 
