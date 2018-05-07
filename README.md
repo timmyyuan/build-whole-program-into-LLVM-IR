@@ -91,4 +91,4 @@ some notes here
 <br>[The LLVM gold plugin](https://llvm.org/docs/GoldPlugin.html)
 <br>[Compiling Autotooled projects to LLVM Bitcode](http://gbalats.github.io/2015/12/10/compiling-autotooled-projects-to-LLVM-bitcode.html)
 <br>[Install LLVM Gold plugin on Ubuntu](https://github.com/SVF-tools/SVF/wiki/Install-LLVM-Gold-Plugin-on-Ubuntu)
-<br>[whold-program-llvm](https://github.com/travitch/whole-program-llvm)
+<br>[whole-program-llvm](https://github.com/travitch/whole-program-llvm)
