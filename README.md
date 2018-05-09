@@ -75,7 +75,7 @@ cd /path/to/workspace
 # create a build directory.
 mkdir sed_build && cd sed_build
 # configuration
-/path/to/sed/source/configure CC=clang LDFLAGS='-flto -fuse-ld=gold -Wl,-plugin-opt=save-temps'
+/path/to/sed/source/configure CC=clang CFLAGS='-flto' LDFLAGS='-flto -fuse-ld=gold -Wl,-plugin-opt=save-temps'
 # build/compile
 make
 ```
