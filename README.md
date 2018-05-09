@@ -83,7 +83,36 @@ If everything is ok, sed.0.0.preopt.bc can be found under the build directory. (
 
 ## whole-program-llvm
 
-some notes here
+### local python environment (optional)
+we create isolated python environments for wllvm. Make sure virtualenv already be installed:
+```sh
+sudo pip install virtualenv 
+```
+Now we create and activate a new isolated python envirnoment:
+```sh
+cd /where/we/want/to/live/python/envirnoments
+virtualenv pyenv --no-site-packages
+source pyenv/bin/activate
+```
+### install wllvm
+fetch wllvm and setup:
+```sh
+git clone https://github.com/travitch/whole-program-llvm wllvm
+cd wllvm && python setup.py install
+```
+note wllvm is also available on pip.
+```sh
+pip install wllvm
+```
+### test (optinal)
+build sed and generate the bitcodes like:
+```sh
+mkdir sed_build && cd sed_build
+/path/to/sed/source/configure CC=wllvm
+make -j4
+cd sed && extract-bc sed
+```
+Then you can find sed.bc in the same folder as the sed executable.
 
 ## Reference
 
