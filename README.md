@@ -6,7 +6,7 @@ LLVM official organization introduced the gold plugin to support LTO (link time 
 
 The mainly differences between the gold plugin and wllvm are :
 * the gold plugin only support ELF files while wllvm can also support MACHO files.
-* wllvm unsupports share libraries and does not need the targets be position independent (i.e. '-fPIC').
+* wllvm unsupports share libraries and does not need the targets are position independent (i.e. '-fPIC').
 * the gold plugin performs a real link process (with LTO, i.e. '-flto') while wllvm simply uses llvm-link (with less optimizations) to connect all intermediate bitcodes produced in compile time. 
 
 More information can be found in reference but the bitcodes (of executables) produced by above methods are extremly similar in practice.
