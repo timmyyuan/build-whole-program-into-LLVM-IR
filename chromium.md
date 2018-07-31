@@ -59,6 +59,9 @@ enable_nacl = false
 is_debug = false
 symbol_level = 0
 use_lld = false
+use_gold = true
+gold_path = "/path/to/binutils_install/bin/ld.gold"
+treat_warnings_as_errors = false
 # use (ESC + :wq) to quit vi/vim
 ```
 disable NACL (native client) is necessary because its built-in compiler does not support '-flto'. 
