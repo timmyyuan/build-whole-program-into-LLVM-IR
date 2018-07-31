@@ -72,6 +72,7 @@ Use your favorite editor to open directory out/mybuild then
 replace all appears of "${ldflags}" to "${ldflags} -flto -fuse-ld=gold -Wl,plugin-opt=save-temps" 
 replace all appears of "${cflags_c}" to "${cflags_c} -flto"
 replace all appears of "${cflags_cc}" to "${clags_cc} -flto"
+replace all appears of "../third_party/binutils/Linux_x64/Release/bin" to your binutils path "/path/to/binutils_install/bin"
 ```
 If you want to add some flags yourself, you can change the build command as below, for example
 ```sh
