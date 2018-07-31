@@ -69,7 +69,7 @@ disable NACL (native client) is necessary because its built-in compiler does not
 c/cxx/link flags should be changed because we will save temporary bitcodes in compile time. 
 Use your favorite editor to open directory out/mybuild then
 ```sh
-replace all appears of "${ldflags}" to "${ldflags} -flto -fuse-ld=gold -Wl,plugin-opt=save-temps" 
+replace all appears of "${ldflags}" to "${ldflags} -flto -fuse-ld=gold -Wl,-plugin-opt=save-temps" 
 replace all appears of "${cflags_c}" to "${cflags_c} -flto"
 replace all appears of "${cflags_cc}" to "${clags_cc} -flto"
 replace all appears of "../third_party/binutils/Linux_x64/Release/bin" to your binutils path "/path/to/binutils_install/bin"
