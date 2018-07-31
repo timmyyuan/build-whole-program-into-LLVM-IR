@@ -71,7 +71,7 @@ Use your favorite editor to open directory out/mybuild then
 ```sh
 replace all appears of "${ldflags}" to "${ldflags} -flto -fuse-ld=gold -Wl,plugin-opt=save-temps" 
 replace all appears of "${cflags_c}" to "${cflags_c} -flto"
-replace all appears of "${cflags_cxx}" to "${clags_cxx} -flto"
+replace all appears of "${cflags_cc}" to "${clags_cc} -flto"
 ```
 If you want to add some flags yourself, you can change the build command as below, for example
 ```sh
