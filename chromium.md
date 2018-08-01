@@ -60,7 +60,6 @@ is_debug = false
 symbol_level = 0
 use_lld = false
 use_gold = true
-gold_path = "/path/to/binutils_install/bin/ld.gold"
 treat_warnings_as_errors = false
 # use (ESC + :wq) to quit vi/vim
 ```
