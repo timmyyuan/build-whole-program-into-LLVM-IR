@@ -46,7 +46,7 @@ make -j4
 the following cmake flags are optional :
 ```sh
 -DLLVM_ENABLE_ASSERTIONS=On
--DLLVM_ENABLE_RTTI=On
+-DLLVM_ENABLE_RTTI=On (LLVM Release will disable RTTI by default)
 ```
 
 ### add newest binutils and newest LLVM to envirnoment variables.
