@@ -22,7 +22,7 @@ git clone --depth 1 git://sourceware.org/git/binutils-gdb.git binutils
 # create a build directory
 mkdir binutils_build && mkdir binutils_install && cd binutils_build
 # configuration
-../binutils/configure --disable-werror --prefix=/path/to/binutils_install
+../binutils/configure --enable-gold --enable-plugins --disable-werror --prefix=/path/to/binutils_install
 # build/compile
 make install
 ```
