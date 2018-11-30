@@ -24,6 +24,7 @@ mkdir binutils_build && mkdir binutils_install && cd binutils_build
 # configuration
 ../binutils/configure --enable-gold --enable-plugins --disable-werror --prefix=/path/to/binutils_install
 # build/compile
+make -j4
 make install
 ```
 ### build LLVM with binutils header.
@@ -75,7 +76,7 @@ cd /path/to/workspace
 # create a build directory.
 mkdir sed_build && cd sed_build
 # configuration
-/path/to/sed/source/configure CC=clang CFLAGS='-flto' LDFLAGS='-flto -fuse-ld=gold -Wl,-plugin-opt=save-temps'
+/path/to/sed/source/configure CC=clang CFLAGS='-flto' LDFLAGS='-flto -fuse-ld=gold -Wl,-plugin-opt=save-temps' RANLIB=llvm-ranlib
 # build/compile
 make
 ```
