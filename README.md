@@ -70,7 +70,7 @@ we use sed as a benchmark to test whether the gold plugins work correctly in LLV
 ```sh
 # check the envirnoment variables are correct.
 clang --version
-binutils --version
+ld --version
 # switch to workspace where to build sed.
 cd /path/to/workspace
 # create a build directory.
