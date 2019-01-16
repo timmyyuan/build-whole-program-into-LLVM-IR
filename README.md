@@ -1,8 +1,8 @@
 # Build whole programs into LLVM IR
 
-Here is some notes for how to build the projects into a single LLVM IR bitcode file. Generally, get a integrate LLVM IR bitcode has several purposes such as whole program analysis or optimization. Based on information on the network, there are two ways, named gold plugin and whole-program-llvm respectively, to achieve this goal.
+Here is some notes for how to build the projects into a single LLVM IR bitcode file. Generally, get a integrate LLVM IR bitcode has several purposes such as whole program analysis or optimization. Based on information on the network, there are two ways, named gold plugin and whole-program-llvm respectively, to achieve this goal. (Update : LLD is also an alternative solution but it is not stable enough compared to gold plugin in earlier versions of LLVM.)
 
-LLVM official organization introduced the gold plugin to support LTO (link time optimization) and further be used to build the whole project into LLVM bitcodes. Some useful opensource tools has been published on github, e.g. wllvm (whole-program-llvm, write in python and support Linux and Mac). 
+LLVM official organization introduced the gold plugin to support LTO (link time optimization) and further be used to build the whole project into LLVM bitcodes. Some useful opensource tools has also been published on github and the most outstanding in those tools is wllvm (whole-program-llvm, write in python and support Linux and Mac). 
 
 The mainly differences between the gold plugin and wllvm are :
 * the gold plugin only support ELF files while wllvm can also support MACHO files.
